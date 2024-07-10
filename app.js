@@ -14,6 +14,9 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const { ensureAuthenticated } = require('./middlewares/auth');
 
+const port = process.env.PORT || 3000;
+
+
 const app = express();
 
 app.use(express.static(path.join(__dirname, 'styles')));
@@ -68,6 +71,6 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something went wrong!');
 });
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+app.listen(port, () => {
+  console.log(`App listening at http://localhost:${port}`);
 });
