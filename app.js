@@ -12,7 +12,6 @@ dotenv.config();
 const User = require('./models/user');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const { ensureAuthenticated } = require('./middlewares/auth');
 
 const port = process.env.PORT || 3000;
 
@@ -21,7 +20,10 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, 'styles')));
 
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB connected successfully'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
@@ -67,7 +69,8 @@ app.use('/users', usersRouter);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
-  console.error(err);
+  console.error('Error stack:', err.stack);
+  console.error('Error message:', err.message);
   res.status(500).send('Something went wrong!');
 });
 

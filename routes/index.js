@@ -5,13 +5,16 @@ const { ensureAuthenticated } = require('../middlewares/auth');
 
 router.get('/', async (req, res, next) => {
   try {
-    const messages = await Message.find().populate('author').sort({ timestamp: -1 }).exec();
-    const reversedMessages = messages.reverse();
-    res.render('index', { user: req.user, messages: reversedMessages });
+    console.log('Fetching messages');
+    const messages = await Message.find().populate('author');
+    console.log('Messages retrieved:', messages);
+    res.render('index', { user: req.user, messages: messages });
   } catch (err) {
+    console.error('Error in GET / route:', err);
     next(err);
   }
 });
+
 
 router.post('/new-message', ensureAuthenticated, async (req, res, next) => {
   try {
