@@ -18,6 +18,9 @@ const port = process.env.PORT || 3000;
 
 const app = express();
 
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
 app.use(express.static(path.join(__dirname, 'styles')));
 
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -64,8 +67,6 @@ passport.deserializeUser(async (id, done) => {
   }
 });
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
