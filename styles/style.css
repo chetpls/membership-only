@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: auto;
+    height: auto;
+    font-family: "Nunito";
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #242424;
+    color: #fff;
+    gap: 20px;
+    height: 100vh;
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 15px;
+  }
+  
+  .messages-container {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 80%;
+    height: 800px;
+  }
+  
+  .messages {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-right: 15px;
+
+  }
+  
+  .messages ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .messages-container h2 {
+    text-align: center;
+  }
+  
+  .rightHeader {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+  }
+  
+  .message {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-start;
+
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  .fa-user {
+    font-size: 32px;
+    align-items: center
+  }
+  
+  .messageLeft {
+    display: flex;
+    align-self: flex-start;
+  }
+  
+  .messageRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 5px;
+  }
+
+  .messageText{
+
+    word-break: break-all;
+
+  }
+  
+  .messageHeader {
+    align-self: top;
+    font-size: 20px;
+    line-height: 20px;
+  }
+  
+  .new-message {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .new-message form {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap:5px;
+  }
+  
+  .new-message textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none;
+  }
+  
+  .new-message button {
+    background-color: #242424;
+    color: #fff;
+    border:1px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    height:29px;
+    padding:5px 15px;
+  }
+  
+  .new-message button:hover {
+    background-color: #fff;
+    color:#242424;
+  }
+
+
+  a{
+    background-color: #242424;
+    color:#fff;
+    border-radius: 5px;
+    border:1px solid #fff;
+    padding:5px 10px;
+    text-decoration: none;
+  }
+
+  a:hover{
+    background-color: #fff;
+    color:#242424;
+  }
+  
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/form.css" />
+  </head>
+  <body>
+    <h1>Sign Up</h1>
+
+    <% if (error) { %>
+    <p style="color: red"><%= error %></p>
+    <% } %>
+    <div class="formContainer">
+      <form action="/users/sign-up" method="post">
+        <div class="entryArea">
+          <input type="text" id="fullName" name="fullName" required /><label
+            for="fullName"
+            >Full Name</label
+          >
+        </div>
+        <div class="entryArea">
+          <input type="email" id="email" name="email" required /><label
+            for="email"
+            >Email</label
+          >
+        </div>
+        <div class="entryArea">
+          <input type="password" id="password" name="password" required /><label
+            for="password"
+            >Password</label
+          >
+        </div>
+
+        <div class="entryArea">
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            required
+          /><label for="confirmPassword">Confirm Password</label>
+        </div>
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="/users/log-in">Log in</a></p>
+    </div>
+  </body>
+</html>

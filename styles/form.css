@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: auto;
+    height: auto;
+    font-family: "Nunito";
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    background-color: #242424;
+    color: #fff;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+  }
+
+  .formContainer form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.formContainer{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
+
+.entryArea{
+    position:relative;
+    margin:20px 0;
+}
+
+.entryArea label{
+    position:absolute;
+    top:50%;
+    left:5px;
+    transform:translateY(-50%);
+    font-size:16px;
+    color:#fff;
+    padding: 0 5px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.entryArea input{
+    width:320px;
+    height:40px;
+    font-size:16px;
+    color:#fff;
+    padding: 0 10px;
+    background:transparent;
+    border: 1.2px solid #fff;
+    outline:none;
+    border-radius: 5px;
+}
+
+.entryArea input:focus~label,
+.entryArea input:valid~label
+{
+    top:0;
+    font-size: 12px;
+    background-color: #242424;
+}
+
+
+
+button {
+    background-color: #242424;
+    color: #fff;
+    border:1px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    height:29px;
+    padding:5px 15px;
+    width: 100%;
+  }
+  
+button:hover {
+    background-color: #fff;
+    color:#242424;
+  }

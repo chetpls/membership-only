@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join Club</title>
+    <link rel="stylesheet" href="/form.css" />
+  </head>
+  <body>
+    <h1>Join the Club</h1>
+
+    <% if (error) { %>
+    <p style="color: red"><%= error %></p>
+    <% } %>
+    <div class="formContainer">
+      <form action="/users/join-club" method="post">
+        <div class="entryArea">
+          <input
+            type="password"
+            id="secretPasscode"
+            name="secretPasscode"
+            required
+          /><label for="secretPasscode">Passcode</label>
+        </div>
+        <button type="submit">Join</button>
+      </form>
+      <p>Don't know code? <a href="/">Go back</a></p>
+    </div>
+  </body>
+</html>

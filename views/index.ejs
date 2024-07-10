@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clubhouse</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://kit.fontawesome.com/51376b3e9f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="header">
+    <h1>CLUBHOUSE</h1>
+    <% if (user) { %>
+      <!-- <div class="middleHeader">
+        <p>Hello, <%= user.fullName %>!</p>
+        <p>Status: <%= user.membershipStatus ? 'Member' : 'Non-member' %></p>
+      </div> -->
+      <div class="rightHeader">
+        <% if (!user.membershipStatus) { %>
+          <a href="/users/join-club">JOIN CLUB</a>
+        <% } %>
+        <a href="/users/log-out">LOG OUT</a>
+      </div>
+    <% } else { %>
+      <div class="rightHeader">
+        <a href="/users/sign-up">SIGN UP</a>
+        <a href="/users/log-in">LOG IN</a>
+      </div>
+    <% } %>
+  </div>
+  <div class="messages-container">      <h2>CHAT</h2>
+    <div class="messages">
+
+      <ul>
+        <% messages.forEach(message => { %>
+          <li>
+            <div class="message">
+              <div class="messageLeft">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="messageRight">
+                <p class="messageHeader">
+                  <% if (user && user.membershipStatus) { %>
+                    <%= message.author.fullName %> on <%= message.date %>
+                  <% } else { %>
+                    ***** on *** *, ****
+                  <% } %>
+                </p>
+                <p class="messageText"><%= message.text %></p>
+              </div>
+            </div>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+    <% if (user) { %>
+      <div class="new-message">
+        <form action="/new-message" method="post">
+          <textarea name="message" placeholder="Write your message here..." rows="1" required></textarea>
+          <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+      </div>
+    <% } %>
+  </div>
+  <script>
+    // Scroll to the bottom of the messages div
+    const messagesDiv = document.querySelector('.messages');
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  </script>
+
+
+  
+</body>
+</html>
